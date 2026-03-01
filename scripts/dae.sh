@@ -250,8 +250,8 @@ check_online_version() {
         fi
         temp_file="$(mktemp /tmp/dae.XXXXXX)"
         if ! curl -sL "$releases_url" | \
-             grep '<h1 data-view-component="true" class="d-inline mr-3">' | \
-             awk -F ' <h1 data-view-component="true" class="d-inline mr-3">' '{print $2}' | \
+             grep '<h1 data-view-component="true" class="tmp-mr-3 d-inline">' | \
+             awk -F ' <h1 data-view-component="true" class="tmp-mr-3 d-inline">' '{print $2}' | \
              awk -F '</h1>' '{print $1}' | \
              tee "$temp_file" >> /dev/null; then
             echo_red "error: Failed to get the latest version of dae!"
